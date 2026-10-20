@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="Icon/AppIcon.png" width="128" alt="Islet icon">
+
 # 🏝️ Islet
 
 **Text from your phone, right in your MacBook's notch.**
@@ -50,6 +52,16 @@ black "island". It tucks itself away again when you stop typing.
 | 📹 **Streaming and recording** | Cues and script right under the camera, so your eyes stay on the lens |
 | 🌍 **Translation** | Show output from a translator app on your phone |
 | 🔔 **Notifications** | Build, deploy or timer status via the API |
+
+## 📦 Download
+
+Grab the latest `Islet-vX.Y.Z.zip` from [Releases](https://github.com/nukhtarov/Islet/releases), unzip it and move `Islet.app` to Applications.
+
+The app is not notarized, so on first launch macOS will block it. Right-click `Islet.app` and choose **Open**, or run:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/Islet.app
+```
 
 ## 🚀 Quick start
 
@@ -116,16 +128,28 @@ Sources/Islet/
 ├── Server.swift      minimal HTTP server built on Network.framework
 ├── PhonePage.swift   phone page (HTML + JS)
 └── main.swift        menu bar menu, QR code, settings
+
+Scripts/make-icon.swift   draws the app icon (swift Scripts/make-icon.swift)
+.github/workflows/        builds and publishes a release for every v* tag
 ```
 
 To develop in Xcode, run `open -a Xcode Package.swift`, then press ⌘R. Quit any built copy of Islet first, or the port will already be in use.
+
+## 🏷️ Releasing
+
+Push a version tag and GitHub Actions builds `Islet.app` and publishes it as a release:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
 
 ## 🗺️ Roadmap
 
 - [ ] Teleprompter mode with auto-scrolling for long text
 - [ ] A few lines of history
 - [ ] English UI
-- [ ] App icon and a signed release
+- [ ] Signed and notarized release
 
 ---
 
