@@ -1,0 +1,4 @@
+.build/
+Islet.app/
+.DS_Store
+.swiftpm/
